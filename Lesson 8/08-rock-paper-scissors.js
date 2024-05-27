@@ -1,3 +1,22 @@
+//Shortcut of the below if statement
+
+let score = JSON.parse(localStorage.getItem('score')) || 
+{
+  Wins: 0,
+  Losses: 0,
+  Ties: 0
+};
+
+/*
+if (!score or score === null) {
+  score = {
+    Wins: 0,
+    Losses: 0,
+    Ties: 0
+  };
+}
+*/
+
 let result = '';
 
 function pickComputerMove() {
@@ -43,7 +62,24 @@ function playGame(playerMove) {
     }
   }
 
-  alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}`);
+  if (result === 'You win.') {
+    score.Wins += 1;
+  } else if (result === 'You lose.') {
+    score.Losses += 1;
+  } else if (result === 'Tie.') {
+    score.Ties += 1;
+  }
+
+  localStorage.setItem('score', JSON.stringify(score));
+
+  alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result} 
+Wins: ${score.Wins}, Losses: ${score.Losses}, Ties: ${score.Ties}`)
 }
 
-computerResult('You win.',)
+function resetScore() {
+  score.Wins = 0;
+  score.Losses = 0;
+  score.Ties = 0;
+  localStorage.removeItem('score');
+  alert('Score Reset');
+}
