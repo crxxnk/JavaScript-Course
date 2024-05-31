@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cock</title>
+</head>
+
+<body>
+  <style>
+    .gaming, .music, .tech {
+      background-color: black;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 12px;
+      border: none;
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      transition-duration: 0.4s;
+    }
+
+    .gaming-active, .music-active, .tech-active {
+      background-color: white;
+    }
+  </style>
+  <button class="buttons gaming" onclick="toggleStyle('gaming');">Gaming</button>
+  <button class="buttons music" onclick="toggleStyle('music');">Music</button>
+  <button class="buttons tech" onclick="toggleStyle('tech');">Tech</button>
+  <script>
+    const buttonsGaming = document.querySelector('.gaming')
+    const buttonsMusic = document.querySelector('.music')
+    const buttonsTech = document.querySelector('.tech')
+    function toggleStyle(style) {
+      if (style === 'gaming') {
+        if (buttonsGaming.classList.contains('gaming-active')) {
+          buttonsGaming.classList.remove('gaming-active')
+        } else {
+          buttonsGaming.classList.add('gaming-active')
+        }
+      } else if (style === 'music') {
+        if (buttonsMusic.classList.contains('music-active')) {
+          buttonsMusic.classList.remove('music-active')
+        } else {
+          buttonsMusic.classList.add('music-active')
+        }
+      } else if (style === 'tech') {
+        if (buttonsTech.classList.contains('music-active')) {
+          buttonsTech.classList.remove('music-active')
+        } else {
+          buttonsTech.classList.add('music-active')
+        } 
+    }
+  }
+  </script>
+</body>
+
+</html>

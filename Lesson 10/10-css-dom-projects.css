@@ -1,0 +1,42 @@
+body {
+  font-family: Arial;
+}
+
+.sub-btn {
+  background-color: black;
+  color: white;
+  border-radius: 50px;
+  border: none;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-bottom: 30px;
+}
+
+.sub-btn:hover {
+  background-color: rgb(128, 128, 128);
+}
+
+.sub-btn-active {
+  background-color: rgba(240, 240, 240);
+  color: black;
+}
+
+.cost-input {
+  padding: 10px;
+  font-size: 15px;
+}
+
+.calculate-button {
+  padding: 10px;
+  border: none;
+  background-color: green;
+  color: white;
+  font-size: 15px;
+  padding : 12px 17px;
+  cursor: pointer;
+}

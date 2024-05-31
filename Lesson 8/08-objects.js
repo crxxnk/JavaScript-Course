@@ -70,3 +70,65 @@ const object5 = {
 };
 console.log(object5);
 object5.method();
+
+
+//Heads or Tails
+
+let score = JSON.parse(localStorage.getItem('score')) || 
+{
+  Wins: 0,
+  Losses: 0,
+  Ties: 0
+};
+
+let result = '';
+
+function headsTails() {
+    let computerMove = '';
+    const randomNumber = Math.random();
+    if (randomNumber >= 0 && randomNumber <= 1 / 2) {
+      computerMove = 'heads';
+    } else if (randomNumber >= 1 / 3 && randomNumber <= 2 / 2) {
+      computerMove = 'tails';
+    }
+    return computerMove;
+  }
+
+  function playGame(playerMove) {
+    const computerMove = headsTails();
+  
+    if (playerMove === 'heads') {
+      if (computerMove === 'heads') {
+        result = 'Tie.';
+      } else if (computerMove === 'tails') {
+        result = 'You win.';
+      }
+    } else if (playerMove === 'tails') {
+      if (computerMove === 'tails') {
+        result = 'Tie.'
+      } else if (computerMove === 'heads') {
+        result = 'You lose.';
+      }
+    }
+  
+    if (result === 'You win.') {
+      score.Wins += 1;
+    } else if (result === 'You lose.') {
+      score.Losses += 1;
+    } else if (result === 'Tie.') {
+      score.Ties += 1;
+    }
+  
+    localStorage.setItem('score', JSON.stringify(score));
+  
+    alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result} 
+  Wins: ${score.Wins}, Losses: ${score.Losses}, Ties: ${score.Ties}`)
+  }
+
+  function resetScore() {
+    score.Wins = 0;
+    score.Losses = 0;
+    score.Ties = 0;
+    localStorage.removeItem('score');
+    alert('Score Reset');
+  }

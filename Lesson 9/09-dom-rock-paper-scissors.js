@@ -1,6 +1,6 @@
 //!Shortcut of the below if statement
 
-let score = JSON.parse(localStorage.getItem('score')) || 
+let score = JSON.parse(localStorage.getItem('score')) ||
 {
   Wins: 0,
   Losses: 0,
@@ -17,7 +17,14 @@ let score = JSON.parse(localStorage.getItem('score')) ||
 }
 */
 
+updateScoreElement();
+
 let result = '';
+
+function updateScoreElement() {
+  document.querySelector('.js-score')
+  .innerHTML = `Wins: ${score.Wins}, Losses: ${score.Losses}, Ties: ${score.Ties}`
+}
 
 function pickComputerMove() {
   let computerMove = '';
@@ -72,8 +79,10 @@ function playGame(playerMove) {
 
   localStorage.setItem('score', JSON.stringify(score));
 
-  alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result} 
-Wins: ${score.Wins}, Losses: ${score.Losses}, Ties: ${score.Ties}`)
+  updateScoreElement();
+
+  document.querySelector('.js-result').innerHTML = result;
+  document.querySelector('.js-moves').innerHTML = `You ${playerMove} - ${computerMove} Computer`;
 }
 
 function resetScore() {
@@ -81,5 +90,5 @@ function resetScore() {
   score.Losses = 0;
   score.Ties = 0;
   localStorage.removeItem('score');
-  alert('Score Reset');
+  updateScoreElement();
 }

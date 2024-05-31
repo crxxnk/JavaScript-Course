@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Exercises</title>
+</head>
+<body>
+  <button class="js-9a">9a</button>
+  <button class="js-9b" onclick="
+  changeText();
+  ">9b</button>
+
+  <br><br><br><br><br>
+
+  <button class="js-heads" onclick="
+  headsTails('heads');
+  ">heads</button>
+  <button class="js-tails" onclick="
+  headsTails('tails');
+  ">tails</button>
+  <p class="js-pick"></p>
+
+  <br><br><br><br><br>
+
+  <input class="js-name" placeholder="Name" 
+  onkeydown="
+  showNameKey(event);">
+  <button onclick="
+  showName();
+  ">Submit</button>
+  <p class="js-name-text"></p>
+
+  <br><br><br><br><br>
+
+  <p>Amazon Shipping Calculator</p>
+  <p>Orders under $40 = +$10 shipping.</p>
+  <p>Orders over $40 = FREE shipping.</p>
+  <input class="js-cost-input" placeholder="Cost of order"
+  onkeydown="
+  handleCostKeyDown(event);
+  ">
+  <button onclick="
+  calculateTotal();
+  ">Calculate</button>
+  <p class="js-total-cost"></p>
+
+  <br><br><br><br><br>
+
+  <input class="js-text" placeholder="Type something" onkeyup="
+  updateText();
+  ">
+  <p class="js-text-par"></p>
+
+  <br><br><br><br><br>
+
+  <button onclick="
+      cartText.innerHTML = `Cart quantity: ${cartQuantity}`;
+    ">Show Quantity</button>
+
+    <button onclick="
+      updateCartQuantity(1);
+    ">Add to Cart</button>
+
+    <button onclick="
+      updateCartQuantity(2);
+    ">+2</button>
+
+    <button onclick="
+      updateCartQuantity(3);
+    ">+3</button>
+
+    <button onclick="
+      updateCartQuantity(4);
+    ">+4</button>
+
+    <button onclick="
+      updateCartQuantity(5);
+    ">+5</button>
+
+    <button onclick="
+      updateCartQuantity(-1);
+    ">Remove from cart</button>
+
+    <button onclick="
+      updateCartQuantity(-2);
+    ">-2</button>
+
+    <button onclick="
+      updateCartQuantity(-3);
+    ">-3</button>
+
+    <button onclick="
+      cartQuantity = 0;
+      cartText.innerHTML = 'Cart was reset.';
+      cartText.innerHTML = `Cart quantity: ${cartQuantity}`;
+    ">Reset Cart</button>
+
+    <p class="js-quantity">Cart quantity:</p>
+
+    <br><br><br><br><br>
+
+    
+
+    <p>
+      <button onclick="
+        updateCalculation('1');
+      ">1</button>
+
+      <button onclick="
+        updateCalculation('2');
+      ">2</button>
+
+      <button onclick="
+        updateCalculation('3');
+      ">3</button>
+
+      <button onclick="
+        updateCalculation(' + ');
+      ">+</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation('4');
+      ">4</button>
+
+      <button onclick="
+        updateCalculation('5');
+      ">5</button>
+
+      <button onclick="
+        updateCalculation('6');
+      ">6</button>
+
+      <button onclick="
+        updateCalculation(' - ');
+      ">-</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation('7');
+      ">7</button>
+
+      <button onclick="
+        updateCalculation('8');
+      ">8</button>
+
+      <button onclick="
+        updateCalculation('9');
+      ">9</button>
+
+      <button onclick="
+        updateCalculation(' * ');
+      ">*</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCalculation('0');
+      ">0</button>
+
+      <button onclick="
+        updateCalculation('.');
+      ">.</button>
+
+      <button onclick="
+        // Note: eval() takes a string and runs it as code.
+        // Avoid using eval() in real world projects since
+        // it can potentially be given harmful code to run.
+        // Only use eval() for learning purposes.
+        calculation = eval(calculation);
+
+        // Display the calculation on the page
+        // instead of console.log
+        displayCalculation();
+
+        localStorage.setItem('calculation', calculation);
+      ">=</button>
+
+      <button onclick="
+        updateCalculation(' / ');
+      ">/</button>
+    </p>
+
+    <p>
+      <button onclick="
+        calculation = '';
+
+        // Display the calculation on the page
+        // instead of console.log
+        displayCalculation();
+
+        localStorage.setItem('calculation', calculation);
+      ">Clear</button>
+    </p>
+    <p class="js-calculation"></p>
+  <script src="09-exercises.js"></script>
+</body>
+</html>
