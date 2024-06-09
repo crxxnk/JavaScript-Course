@@ -27,7 +27,9 @@
 
     .gaming-active, .music-active, .tech-active {
       background-color: white;
+      color: black;
     }
+
   </style>
   <button class="buttons gaming" onclick="toggleStyle('gaming');">Gaming</button>
   <button class="buttons music" onclick="toggleStyle('music');">Music</button>
@@ -43,6 +45,34 @@
         } else {
           buttonsGaming.classList.add('gaming-active')
         }
+      } else if (style === 'music') {
+        if (buttonsMusic.classList.contains('music-active')) {
+          buttonsMusic.classList.remove('music-active')
+        } else {
+          buttonsMusic.classList.add('music-active')
+        }
+      } else if (style === 'tech') {
+        if (buttonsTech.classList.contains('music-active')) {
+          buttonsTech.classList.remove('music-active')
+        } else {
+          buttonsTech.classList.add('music-active')
+        } 
+    }
+  }
+
+    const buttonsGamingOne = document.querySelector('.gaming-one')
+    const buttonsMusicTwo = document.querySelector('.music-two')
+    const buttonsTechThree = document.querySelector('.tech-three')
+    
+  function toggleStyleScnd(style) {
+    if (style === 'gaming-one') {
+        if (buttonsGamingOne.classList.contains('gaming-active-one')) {
+          buttonsGamingOne.classList.remove('gaming-active-one')
+        } else {
+          buttonsGamingOne.classList.add('gaming-active-one')
+        }
+        buttonsMusicTwo.classList.remove('music-active')
+        buttonsTechThree.classList.remove('tech-active')
       } else if (style === 'music') {
         if (buttonsMusic.classList.contains('music-active')) {
           buttonsMusic.classList.remove('music-active')
